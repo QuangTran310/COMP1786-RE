@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>iExplore</title>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport"
+            content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+
+    <body>
+        <button class="showform"
+                    onclick="document.getElementById('id01').style.display='block'">Add</button>
+        <!-- start of list events section -->
+        <section>
+            <h2 style="text-align: center;" class="main-header container border border-dark"><strong>List
+                    events</strong></h2>
+            <div class="container list-events border border-dark">
+                <div style="margin-bottom: -20px;">
+                    <input type="text" placeholder="Search event activity name." id="search">
+                </div>
+                <div id="content">
+                    
+                    <!-- list events display here -->
+                    
+                </div>
+            </div>
+        </section>
+        <!-- end of list events section -->
+
+        <!-- start of add event form -->
+        <section>
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <form id="addform" class="modal-content" method="post">
+                    <!-- form using to add new event -->
+                    <div class="container">
+                        <h1>Add new event</h1>
+                        <p>Please fill in this form to add new event.</p>
+                        <hr>
+
+                        <label for="activity_name"><b>Activity Name</b></label>
+                        <input type="text" placeholder="Enter activity name." name="add_activity_name" required>
+
+                        <label for="location"><b>Location</b></label>
+                        <input type="text" placeholder="Enter location." name="add_location">
+
+                        <label for="held_date"><b>Held date</b></label>
+                        <input type="text" placeholder="Enter held date (year-month-day)." name="add_held_date" required pattern="^\d{4}-\d{2}-\d{2}$">
+
+                        <label for="attending_time"><b>Attending time</b></label>
+                        <input type="text" placeholder="Enter attending time." name="add_attending_time">
+
+                        <label for="reporter_name"><b>Reporter name</b></label>
+                        <input type="text" placeholder="Enter reporter name." name="add_reporter_name" required>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                                class="cancelbtn">Cancel</button>
+                            <button type="submit" class="addbtn">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- end of add event form -->
+
+        <!-- start of update event form -->
+        <section>
+            <div id="id02" class="update-modal">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <form id="updateform" class="modal-content" method="dialog">
+                    <!-- form using to add new event -->
+                    <div class="container">
+                        <h1>Update event</h1>
+                        <hr>
+                        <input type="hidden" name="update_id" id="update_id" readonly>
+
+                        <label for="activity_name"><b>Activity Name</b></label>
+                        <input type="text" placeholder="Enter activity name." name="update_activity_name"
+                            id="update_activity_name">
+
+                        <label for="location"><b>Location</b></label>
+                        <input type="text" placeholder="Enter location." name="update_location" id="update_location">
+
+                        <label for="held_date"><b>Held date</b></label>
+                        <input type="text" placeholder="Enter held date." name="update_held_date" id="update_held_date">
+
+                        <label for="attending_time"><b>Attending time</b></label>
+                        <input type="text" placeholder="Enter attending time." name="update_attending_time"
+                            id="update_attending_time">
+
+                        <label for="reporter_name"><b>Reporter name</b></label>
+                        <input type="text" placeholder="Enter reporter name." name="update_reporter_name"
+                            id="update_reporter_name">
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                                class="cancelbtn">Cancel</button>
+                            <button type="submit" class="do-updatebtn" onclick="updateItem()">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- end of update event form -->
+
+        <!-- start of modal message section -->
+        <div class="w3-container">
+            <div id="id03" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <header class="w3-container modal-header">
+                    </header>
+                    <div class="w3-container">
+                        <!-- message display here -->
+                        <p class="modal-message" id="modal_message"></p>
+                    </div>
+                    <footer class="w3-container modal-footer">
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal message section -->
+
+
+    </body>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        var updateModal = document.getElementById('id02');
+
+    </script>
+
+    <script>
+        function postEventId() {
+            getItemById(document.getElementById("event_id").value);
+        }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id03');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="js/my_attributes.js"></script>
+    <script type="text/javascript" src="js/my_database.js"></script>
+
+</html>

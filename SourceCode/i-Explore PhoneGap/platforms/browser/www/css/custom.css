@@ -1,0 +1,238 @@
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.main-header, .main-footer {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.list-events {
+  margin-top: -10px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.8);
+  background-color: white;
+  overflow-y: scroll;
+  height: 600px;
+}
+
+.list-item {
+  margin: 10px auto 10px auto;
+  padding: 10px;
+  background-color: white;
+}
+
+.title,
+.content {
+  padding-left: 0px;
+}
+
+/* Full-width input fields */
+input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f6f6f6;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+
+.cancelbtn {
+  background-color: #f6f6f6;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.showform {
+  position: fixed;
+  bottom: 5px;
+  right: 15px;
+}
+
+.addbtn,
+.showform,
+.do-updatebtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.updatebtn {
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.deletebtn {
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.btn-group {
+  float: right;
+}
+
+button:hover {
+  opacity: 2;
+}
+
+.showform {
+  width: 100px;
+  float: right;
+}
+
+/* Extra styles for the cancel button */
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.addbtn,
+.do-updatebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+#empty_events {
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal,
+.update-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #f6f6f6;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 60%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.modal-header,
+.modal-footer {
+  height: 20px;
+  background-color: #f6f6f6;
+}
+
+.modal-message {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#id03 {
+  padding-top: 20px;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+
+  .cancelbtn,
+  .addbtn,
+  .do-updatebtn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 993px) {
+  .w3-modal-content {
+    max-width: 500px;
+  }
+}
