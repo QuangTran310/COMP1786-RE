@@ -18,13 +18,11 @@
     </head>
 
     <body>
-        <button class="showform"
-                    onclick="document.getElementById('id01').style.display='block'">Add</button>
         <!-- start of list events section -->
         <section>
-            <h2 style="text-align: center;" class="main-header container border border-dark"><strong>List
+            <div class="container list-events border-dark">
+                <h2 style="text-align: center;" class="main-header container border border-dark"><strong>List
                     events</strong></h2>
-            <div class="container list-events border border-dark">
                 <div style="margin-bottom: -20px;">
                     <input type="text" placeholder="Search event activity name." id="search">
                 </div>
@@ -32,7 +30,10 @@
                     
                     <!-- list events display here -->
                     
+                    
                 </div>
+                <button class="showform" style=" width: 100%;"
+                    onclick="document.getElementById('id01').style.display='block'">Add</button>
             </div>
         </section>
         <!-- end of list events section -->
@@ -42,7 +43,7 @@
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
-                <form id="addform" class="modal-content" method="post">
+                <form id="addform" class="modal-content border" method="post">
                     <!-- form using to add new event -->
                     <div class="container">
                         <h1>Add new event</h1>
@@ -79,7 +80,7 @@
             <div id="id02" class="update-modal">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
-                <form id="updateform" class="modal-content" method="dialog">
+                <form id="updateform" class="modal-content border" method="dialog">
                     <!-- form using to add new event -->
                     <div class="container">
                         <h1>Update event</h1>

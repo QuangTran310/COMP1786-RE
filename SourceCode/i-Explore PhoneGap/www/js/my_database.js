@@ -87,25 +87,17 @@ function displayData(result) {
     let rows = result.rows;
     for (var i = 0; i < rows.length; i++) {
         var row = rows.item(i)
-        html += '<div class="row border border-dark list-item">';
-        html += '<div class="col-lg-12 col-md-12 col-sm-12 title">';
+        html += '<div class="border data">'
         html += '<h4><strong>Event</strong></h4>';
+        html += '<div>';
+        html += '<label class="data-label"><span class="data-header">Activity name</span><span class="data-content">' + row['activity_name'] + '</span></label>';
+        html += '<label class="data-label"><span class="data-header">Location</span><span class="data-content">' + row['location'] + '</span></label>';
+        html += '<label class="data-label"><span class="data-header">Held date</span><span class="data-content">' + row['held_date'] + '</span></label>';
+        html += '<label class="data-label"><span class="data-header">Attending time</span><span class="data-content">' + row['attending_time'] + '</span></label>';
+        html += '<label class="data-label"><span class="data-header">Reporter name</span><span class="data-content">' + row['reporter_name'] + '</span></label>';
+        html += '<div class="btn-group" role="group"><button class="updatebtn" onclick="getItemById(' + row['id'] + '); document.getElementById(\'id02\').style.display=\'block\'"> Update</button> <button class="deletebtn" onclick="deleteItem(' + row['id'] + ')">Delete</button></div>';
         html += '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title"><strong>Activity name</strong></div>';
-        html += '<div class="col-lg-9 col-md-9 col-sm-9 content">' + row['activity_name'] + '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title"><strong>Location</strong></div>';
-        html += '<div class="col-lg-9 col-md-9 col-sm-9 content">' + row['location'] + '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title"><strong>Held date</strong></div>';
-        html += '<div class="col-lg-9 col-md-9 col-sm-9 content">' + row['held_date'] + '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title"><strong>Attending time</strong></div>';
-        html += '<div class="col-lg-9 col-md-9 col-sm-9 content">' + row['attending_time'] + '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title"><strong>Reporter name</strong></div>';
-        html += '<div class="col-lg-6 col-md-6 col-sm-6 content">' + row['reporter_name'] + '</div>';
-        html += '<div class="col-lg-3 col-md-3 col-sm-3 title">';
-        html += '<div class="btn-group btn-group-sm" role="group"><button class="updatebtn" onclick="getItemById(' + row['id'] + '); document.getElementById(\'id02\').style.display=\'block\'"> Update</button> <button class="deletebtn" onclick="deleteItem(' + row['id'] + ')">Delete</button>';
-        html += '</div >';
-        html += '</div >';
-        html += '</div >';
+        html += '</div>';
     }
     $("#content").html(html);
 }

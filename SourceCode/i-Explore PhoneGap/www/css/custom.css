@@ -27,23 +27,36 @@ body {
 }
 
 .main-header, .main-footer {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.8);
   overflow: hidden;
 }
 
 .list-events {
-  margin-top: -10px;
-  margin-bottom: 16px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.8);
+  margin-top: 2%;
   background-color: white;
-  overflow-y: scroll;
-  height: 600px;
 }
 
 .list-item {
   margin: 10px auto 10px auto;
   padding: 10px;
   background-color: white;
+}
+
+.data-header {
+  font-weight: bold;
+}
+
+.data-content {
+  float: right;
+}
+
+.data-label {
+  width: 100%;
+}
+
+.data {
+  margin-top: 3%;
+  padding: 10px;
+  overflow: auto;
 }
 
 .title,
@@ -80,14 +93,7 @@ input[type=text]:focus {
   opacity: 0.9;
 }
 
-.showform {
-  position: fixed;
-  bottom: 5px;
-  right: 15px;
-}
-
 .addbtn,
-.showform,
 .do-updatebtn {
   background-color: #04AA6D;
   color: white;
@@ -106,16 +112,18 @@ input[type=text]:focus {
   opacity: 0.9;
   cursor: pointer;
   margin-right: 15px;
+  font-size: 18px;
 }
 
 .deletebtn {
   border: none;
   opacity: 0.9;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .btn-group {
-  float: right;
+  margin-top: 5%;
 }
 
 button:hover {
@@ -124,7 +132,13 @@ button:hover {
 
 .showform {
   width: 100px;
-  float: right;
+  margin-top: 2%;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 /* Extra styles for the cancel button */
@@ -164,16 +178,15 @@ button:hover {
   overflow: auto;
   /* Enable scroll if needed */
   background-color: #f6f6f6;
-  padding-top: 50px;
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto;
+  margin: 2% auto 0 auto;
   /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 60%;
+  width: 90%;
   /* Could be more or less, depending on screen size */
 }
 
@@ -217,7 +230,7 @@ hr {
   text-align: center;
 }
 
-#id03 {
+#id03, #id02 {
   padding-top: 20px;
 }
 
